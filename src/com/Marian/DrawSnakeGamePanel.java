@@ -10,7 +10,7 @@ import javax.swing.JPanel;
  * @author Clara
  *
  */
-@SuppressWarnings("Serial")
+
 public class DrawSnakeGamePanel extends JPanel {
 	
 	private static int gameStage = SnakeGame.BEFORE_GAME;  //use this to figure out what to paint
