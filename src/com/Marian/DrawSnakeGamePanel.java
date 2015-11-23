@@ -10,6 +10,7 @@ import javax.swing.JPanel;
  * @author Clara
  *
  */
+@SuppressWarnings("Serial")
 public class DrawSnakeGamePanel extends JPanel {
 	
 	private static int gameStage = SnakeGame.BEFORE_GAME;  //use this to figure out what to paint
@@ -17,6 +18,7 @@ public class DrawSnakeGamePanel extends JPanel {
 	private Snake snake;
 	private Kibble kibble;
 	private Score score;
+	Font setfont = new Font("TimesRoman", Font.PLAIN, 18); //set font and font size to be bigger and clearer
 	
 	DrawSnakeGamePanel(Snake s, Kibble k, Score sc){
 		this.snake = s;
@@ -65,26 +67,41 @@ public class DrawSnakeGamePanel extends JPanel {
 
 	private void displayGameWon(Graphics g) {
 		// TODO Replace this with something really special!
-		g.clearRect(100,100,350,350);
+		g.setFont(setfont);
+		g.clearRect(20,20,460,460);
+		g.setColor(Color.blue);
 		g.drawString("YOU WON SNAKE!!!", 150, 150);
 		
 	}
 	private void displayGameOver(Graphics g) {
 
-		g.clearRect(100,100,350,350);
-		g.drawString("GAME OVER", 150, 150);
+		g.clearRect(10,10,580,580); //add new rectangular border
+		g.setFont(setfont);
+		g.clearRect(20,20,560,560); //change the white rectangylar
+		g.setColor(Color.red); //set game over font color red
+		g.drawLine(20, 65, 560, 65);// under line the game game over
+		g.drawString("GAME OVER", 150, 60); // re-position gave over
 		
 		String textScore = score.getStringScore();
 		String textHighScore = score.getStringHighScore();
 		String newHighScore = score.newHighScore();
-		
-		g.drawString("SCORE = " + textScore, 150, 250);
-		
-		g.drawString("HIGH SCORE = " + textHighScore, 150, 300);
+		g.setColor(Color.blue); // set score color to blue and reposition
+		g.drawString("Score = " + textScore, 150, 120);
+		g.setColor(Color.blue);//set score color to blue and reposition
+		g.drawString(" High score = " + textHighScore, 150, 180);
 		g.drawString(newHighScore, 150, 400);
+		g.setColor(Color.black); //set score color to black and reposition
+		g.drawString("press a key other than q/Q to play again", 150, 240);
+		g.setColor(Color.red); // set score color to red and reposition
+		g.drawString("press q/Q to guit the game", 150, 320);
 		
-		g.drawString("press a key to play again", 150, 350);
-		g.drawString("Press q to quit the game",150,400);		
+		//g.drawString("SCORE = " + textScore, 150, 250);
+		
+		//g.drawString("HIGH SCORE = " + textHighScore, 150, 300);
+		//g.drawString(newHighScore, 150, 400);
+		
+		//g.drawString("press a key to play again", 150, 350);
+		//g.drawString("Press q to quit the game",150,400);
     			
 	}
 
@@ -131,7 +148,7 @@ public class DrawSnakeGamePanel extends JPanel {
 		LinkedList<Point> coordinates = snake.segmentsToDraw();
 		
 		//Draw head in grey
-		g.setColor(Color.LIGHT_GRAY);
+		g.setColor(Color.YELLOW);
 		Point head = coordinates.pop();
 		g.fillRect((int)head.getX(), (int)head.getY(), SnakeGame.squareSize, SnakeGame.squareSize);
 		
@@ -144,9 +161,22 @@ public class DrawSnakeGamePanel extends JPanel {
 	}
 
 	private void displayInstructions(Graphics g) {
-        g.drawString("Press any key to begin!",100,200);		
-        g.drawString("Press q to quit the game",100,300);		
-    	}
+		g.drawRect(10,10,580,580); //add new rectangular border
+		g.setFont(setfont); //set the font size and font type
+		g.setColor(Color.blue); // set color to blue and reposition
+		g.drawString("Snake game project edited by marian!", 100, 50);//new
+
+		g.setColor(Color.BLACK); //set color to blank and reposition
+		g.drawString("press any key other than q/Q to begin", 100, 200);
+		//bug if I press q it will guit
+		g.setColor(Color.red); // set score  color to red and reposition
+		g.drawString("press q/Q to quit the game", 100, 250);
+        //g.drawString("Press any key to begin!",100,200);
+        //g.drawString("Press q to quit the game",100,300);
+
+
+
+	}
 	
     
 }

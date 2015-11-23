@@ -8,6 +8,7 @@ public class GameControls implements KeyListener{
 	Snake snake;
 	
 	GameControls(Snake s){
+
 		this.snake = s;
 	}
 	
