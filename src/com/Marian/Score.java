@@ -18,7 +18,8 @@ public class Score {
 	}
 	
 	public static void resetScore() {
-		score = 0;	
+
+		score = 0;
 	}
 	
 	public static void increaseScore() {
@@ -28,6 +29,7 @@ public class Score {
 	}
 	
 	public int getScore(){
+
 		return score;
 	}
 	
@@ -46,6 +48,7 @@ public class Score {
 	//These methods are useful for displaying score at the end of the game
 	
 	public String getStringScore() {
+
 		return Integer.toString(score);
 	}
 

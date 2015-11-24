@@ -7,13 +7,13 @@ import javax.swing.*;
 
 public class SnakeGame {
 
-	public final static int xPixelMaxDimension = 501;  //Pixels in window. 501 to have 50-pixel squares plus 1 to draw a border on last square
-	public final static int yPixelMaxDimension = 501;
+	public final static int xPixelMaxDimension = 601;  //Pixels in window. 501 to have 50-pixel squares plus 1 to draw a border on last square
+	public final static int yPixelMaxDimension = 601;
 
 	public static int xSquares ;
 	public static int ySquares ;
 
-	public final static int squareSize = 50;
+	public final static int squareSize = 30;
 
 	protected static Snake snake ;
 
@@ -32,7 +32,7 @@ public class SnakeGame {
 	private static int gameStage = BEFORE_GAME;  //use this to figure out what should be happening. 
 	//Other classes like Snake and DrawSnakeGamePanel will need to query this, and change its value
 
-	protected static long clockInterval = 500; //controls game speed
+	protected static long clockInterval = 200; //controls game speed
 	//Every time the clock ticks, the snake moves
 	//This is the time between clock ticks, in milliseconds
 	//1000 milliseconds = 1 second.
@@ -96,7 +96,8 @@ public class SnakeGame {
 
 
 
-	public static int getGameStage() {
+	public static int getGameStage()
+	{
 		return gameStage;
 	}
 
@@ -108,6 +109,7 @@ public class SnakeGame {
 	}
 
 	public static void setGameStage(int gameStage) {
+
 		SnakeGame.gameStage = gameStage;
 	}
 }

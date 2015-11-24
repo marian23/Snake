@@ -47,13 +47,13 @@ public class Snake {
 		int screenYCenter = (int) maxY/2;  //Cast just in case we have an odd number
 
 		snakeSquares[screenXCenter][screenYCenter] = 1;
-		snakeSquares[screenXCenter+1][screenYCenter] = 2;
+		snakeSquares[screenXCenter+1][screenYCenter] = 0;
 		snakeSquares[screenXCenter+2][screenYCenter] = 3;
 
 		snakeHeadX = screenXCenter;
 		snakeHeadY = screenYCenter;
 
-		snakeSize = 3;
+		snakeSize = 2;
 
 		currentHeading = DIRECTION_LEFT;
 		lastHeading = DIRECTION_LEFT;
@@ -90,15 +90,18 @@ public class Snake {
 	}
 
 	public void snakeUp(){
-		if (currentHeading == DIRECTION_UP || currentHeading == DIRECTION_DOWN) { return; }
+		if (currentHeading == DIRECTION_UP || currentHeading == DIRECTION_DOWN) {
+			return; }
 		currentHeading = DIRECTION_UP;
 	}
 	public void snakeDown(){
-		if (currentHeading == DIRECTION_DOWN || currentHeading == DIRECTION_UP) { return; }
+		if (currentHeading == DIRECTION_DOWN || currentHeading == DIRECTION_UP) {
+			return; }
 		currentHeading = DIRECTION_DOWN;
 	}
 	public void snakeLeft(){
-		if (currentHeading == DIRECTION_LEFT || currentHeading == DIRECTION_RIGHT) { return; }
+		if (currentHeading == DIRECTION_LEFT || currentHeading == DIRECTION_RIGHT) {
+			return; }
 		currentHeading = DIRECTION_LEFT;
 	}
 	public void snakeRight(){
