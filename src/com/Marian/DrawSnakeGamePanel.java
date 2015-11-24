@@ -93,7 +93,7 @@ public class DrawSnakeGamePanel extends JPanel {
 		g.setColor(Color.black); //set score color to black and reposition
 		g.drawString("press a key other than q/Q to play again", 150, 240);
 		g.setColor(Color.red); // set score color to red and reposition
-		g.drawString("press q/Q to guit the game", 150, 320);
+		g.drawString("press q/Q to quit the game", 150, 320);
 		
 		//g.drawString("SCORE = " + textScore, 150, 250);
 		
